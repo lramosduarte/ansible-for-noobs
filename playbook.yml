@@ -1,0 +1,7 @@
+- hosts: virtual-machine
+  remote_user: lramosduarte
+  vars:
+    nome: Leonardo Ramos duarte
+    email: lramosduarte@gmail.com
+  roles:
+      - git

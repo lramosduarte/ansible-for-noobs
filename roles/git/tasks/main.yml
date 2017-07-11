@@ -1,0 +1,5 @@
+- name: Instalar o git
+  become: yes
+  apt:
+    name: git
+    state: present
