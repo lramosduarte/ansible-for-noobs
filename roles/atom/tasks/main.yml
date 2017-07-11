@@ -1,0 +1,9 @@
+- name: Baixa o atom.deb pelo endpoint da ultima versão estável
+  get_url:
+    url: https://atom.io/download/deb
+    dest: /tmp/
+
+- name: Instala o atom
+  become: yes
+  apt:
+    deb: /tmp/atom-amd64.deb
