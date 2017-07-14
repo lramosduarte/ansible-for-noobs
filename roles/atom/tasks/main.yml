@@ -7,3 +7,11 @@
   become: yes
   apt:
     deb: /tmp/atom-amd64.deb
+
+- name: Instala o pacote sync-settings
+  command: apm install sync-settings
+
+- name: Configura o sync-settings
+  template:
+    src: templates/config.cson.j2
+    dest: $HOME/.atom/config.cson
