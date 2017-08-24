@@ -3,3 +3,8 @@
   apt:
     name: git
     state: present
+
+- name: Configura o git
+  template:
+    src: templates/.gitconfig.j2
+    dest: $HOME/.gitconfig
