@@ -4,15 +4,15 @@
       cache_valid_time: 3600
   become: yes
 
-- name: Atualizar pacotes
+- name: Atualiza pacotes para ultima versão
   apt:
-      upgrade: dist
+    upgrade: dist
   become: yes
 
 - name: Instala pacotes diários
   apt:
     name: "{{ item }}"
-    state: present
+    state: latest
   become: yes
   with_items:
     - flake8
