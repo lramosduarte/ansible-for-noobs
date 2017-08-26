@@ -1,0 +1,24 @@
+- name: Instala chave do repositório
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: BBEBDCB318AD50EC6865090613B00F1FD2C19886
+    state: present
+  become: true
+
+- name: Configura repositório
+  apt_repository:
+    repo: deb http://repository.spotify.com stable non-free
+    filename: spotify
+    state: present
+    update_cache: yes
+  become: true
+
+- name: Instala Spotify
+  apt:
+    name: "{{ item }}"
+    state: present
+    install_recommends: no
+  with_items:
+    - spotify-client
+    - libavcodec-extra
+  become: true

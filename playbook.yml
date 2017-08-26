@@ -8,6 +8,9 @@
     # Token para acesso ao gist, recomendo usar uma token somente do gist
     personalAccessToken: "8c5cce9c87eda59b250d5f37b97bf4dbea75ee9c"
   roles:
+      - programas_uso_geral
       - atom
       - git
       - tmux
+      - python
+      - spotify
