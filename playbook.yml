@@ -1,12 +1,11 @@
 - hosts: virtual-machine
   remote_user: lramosduarte
   vars:
-    nome: Leonardo Ramos duarte
-    email: lramosduarte@gmail.com
-    gistId: "384a0fc966e27d3a0c10927608a1b679"
-    signingkey: 6B22B957
-    # Token para acesso ao gist, recomendo usar uma token somente do gist
-    personalAccessToken: "8c5cce9c87eda59b250d5f37b97bf4dbea75ee9c"
+    nome: SEU_NOME
+    email: SEU_EMAIL
+    gistId: GIST_ID
+    signingkey: KEY_GPG
+    personalAccessToken: COLOQUE_AQUI_SUA_TOKEN
   roles:
       - programas_uso_geral
       - atom
