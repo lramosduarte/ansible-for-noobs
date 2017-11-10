@@ -5,4 +5,7 @@
   become: yes
 
 - name: Instalar virtualenv
-  command: pip3 install virtualenv
+  command: pip install virtualenv
+
+- name: Instalar toggl-client
+  command: pip install toggl-client

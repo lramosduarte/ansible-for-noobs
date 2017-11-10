@@ -4,6 +4,11 @@
     name: tmux
     state: latest
 
+- name: Configura o tmux
+  template:
+    src: templates/.tmux.j2
+    dest: $HOME/.tmux.conf
+
 - name: Insere/atualiza confiração do .bashrc para abrir o tmux com o terminal
   blockinfile:
     path: $HOME/.bashrc
