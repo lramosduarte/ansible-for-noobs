@@ -26,3 +26,4 @@
     - vim-nox
     - lm-sensors
     - peco
+    - software-properties-common

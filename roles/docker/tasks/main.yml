@@ -1,0 +1,25 @@
+- name: Download gpg key docker
+  get_url:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /tmp/gpg-docker
+
+- name: Inserindo a chave
+  apt_key:
+    file: /tmp/gpg-docker
+  become: yes
+
+- name: Adiciona repositorio docker
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable
+
+- name: Atualizar cache
+  apt:
+      update_cache: yes
+      cache_valid_time: 3600
+  become: yes
+
+- name: Instala Docker CE
+  apt:
+    name: docker-ce
+    state: latest
+  become: yes
