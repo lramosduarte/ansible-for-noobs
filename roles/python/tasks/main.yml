@@ -5,7 +5,14 @@
   become: yes
 
 - name: Instalar virtualenv
-  command: pip install virtualenv
+  command: pip3 install virtualenv
 
 - name: Instalar toggl-client
-  command: pip install toggl-client
+  command: pip3 install toggl-client
+
+- name: Deixa tgc disponivel globalmente
+  file:
+    src: /home/lramosduarte/.local/bin/tgc
+    path: /usr/local/bin/tgc
+    state: link
+  become: yes

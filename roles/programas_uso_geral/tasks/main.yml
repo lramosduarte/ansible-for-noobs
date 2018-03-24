@@ -25,3 +25,4 @@
     - curl
     - vim-nox
     - lm-sensors
+    - peco

@@ -1,4 +1,4 @@
-- hosts: virtual-machine
+- hosts: all
   remote_user: lramosduarte
   vars:
     nome: SEU_NOME
