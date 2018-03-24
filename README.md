@@ -33,3 +33,22 @@ Após realizar os ajustes, é só rodar o comando:
 ``` bash
     ansible-playbook playbook.yml -i hosts.ini --ask-become-pass
 ```
+
+#### Todo
+- [X] atom
+    - [x] instalar
+    - [x] configurar
+    - [x] Instalar sync-settings
+    - [x] Configurar sync-settings
+- [x] tmux
+- [x] git
+    - [x] Instalar
+    - [x] Configurar
+- [x] configurar bash
+- [ ] instalar teamspeak
+- [x] Programas de uso geral
+- [x] Python
+    - [x] virtual-env
+    - [x] Pip3
+- [x] Docker
+- [ ] VSCode
