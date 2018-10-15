@@ -11,6 +11,7 @@
 - name: Adiciona repositorio docker
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable
+  become: yes
 
 - name: Atualizar cache
   apt:

@@ -52,3 +52,5 @@ Após realizar os ajustes, é só rodar o comando:
     - [x] Pip3
 - [x] Docker
 - [ ] VSCode
+    - [x] Instação
+    - [ ] Configuração

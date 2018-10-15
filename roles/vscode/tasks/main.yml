@@ -1,0 +1,5 @@
+- name: Instala o vscode
+  become: yes
+  apt:
+    deb: https://vscode-update.azurewebsites.net/1.28.1/linux-deb-x64/stable
+
