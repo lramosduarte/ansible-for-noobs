@@ -1,0 +1,15 @@
+- name: Instalar o ssh
+  become: yes
+  apt:
+    name: openssh-server
+    state: present
+
+- name: Configura o ssh config para projetos pessoais usarem a chave pessoal
+  template:
+    src: templates/config.j2
+    dest: $HOME/.ssh/config
+
+- name: Cria uma chave ssh para uso genérico
+  command : ssh-keygen -q -t rsa -f /etc/ssh/id_rsa -C "" -N ""
+  args:
+      creates: /etc/ssh/id_rsa
