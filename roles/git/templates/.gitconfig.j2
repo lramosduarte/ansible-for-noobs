@@ -8,3 +8,4 @@
 [alias]
     lg = log --graph --decorate --pretty=oneline --abbrev-commit --all
     slog = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    remote-branchs = "! for branch in `git branch -r | grep -v HEAD`;do echo `git show --format=\"%ai %ar by %an\" $branch | head -n 1` \t$branch; done | sort -r"
