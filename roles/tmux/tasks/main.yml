@@ -19,13 +19,49 @@
       force_color_prompt=yes
       color_prompt=yes
 
+      MAGENTA='\e[95m'
+      NO_COLOR='\033[0m'
+      LARANJA='\033[01;31m'
+
+      BG_CIANO='\e[46m'
+      BG_VERDE_CLARO='\e[102m'
+
       # Exibe nome da branch
       parse_git_branch() {
           git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
       }
 
+      #Numero de arquivos modificados
+      count_files_modifieds() {
+          if [ -d .git ]; then
+      	arquivos_modificados=$(git ls-files -m | uniq | wc -l)
+      	if [[ $arquivos_modificados > 0 ]]; then
+                  echo -e " ${BG_CIANO}${LARANJA}| M-$arquivos_modificados${NO_COLOR}"
+      	fi;
+          fi;
+      }
+
+      #Numero de arquivos no stash
+      count_files_in_stash() {
+          if [ -d .git ]; then
+      	tem_stash=$(git stash list | wc -l)
+      	if [[ $tem_stash > 0 ]]; then
+                  echo -e " ${BG_CIANO}${LARANJA}| S-$tem_stash${NO_COLOR}"
+      	fi;
+          fi;
+      }
+
+      # Verifica se existe mudanças para aplicar
+      exist_remote_changes() {
+          if [ -d .git ]; then
+              if [[ $(git diff $(git branch -vv | grep '* .* ' | awk '{print substr($4, 2, length($4) - 2)}')) ]]; then
+      	    echo -e " ${BG_VERDE_CLARO}${MAGENTA}+${NO_COLOR}";
+      	fi;
+          fi;
+      }
+
       if [ "$color_prompt" = yes ]; then
-          PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
+      	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[01;31m\]$(parse_git_branch)$(exist_remote_changes)$(count_files_modifieds)$(count_files_in_stash)\[\033[0m\]\$ '
       else
           PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
       fi
