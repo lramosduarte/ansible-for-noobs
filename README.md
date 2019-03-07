@@ -28,10 +28,15 @@ vars:
   personalAccessToken: COLOQUE_AQUI_SUA_TOKEN
 ```
 
+### Rodando a playbook
 Após realizar os ajustes, é só rodar o comando:
 
 ``` bash
     ansible-playbook playbook.yml -i hosts.ini --ask-become-pass
+```
+Localmente:
+``` bash
+    ansible-playbook  -i "localhost," -c local playbook.yml
 ```
 
 #### Todo
@@ -51,6 +56,9 @@ Após realizar os ajustes, é só rodar o comando:
     - [x] virtual-env
     - [x] Pip3
 - [x] Docker
+- [x] SSH **QUEBRADO**
+    - [x] sshconfig
+    - [x] ssh genérico
 - [ ] VSCode
     - [x] Instação
     - [ ] Configuração
