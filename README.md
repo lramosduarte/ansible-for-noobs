@@ -2,7 +2,7 @@
 
 Playbook com roles do meu uso pessoal.
 
-Nem tudo que uso na minha estação de trabalho foi configurado, [clique aqui pra ver a lista](todos.md) do que esta configurado ou vai ser em breve.
+Nem tudo que uso na minha estação de trabalho foi configurado, [clique aqui](#todo) pra ver a lista do que esta configurado ou vai ser em breve.
 
 ## Como usar
 
@@ -39,7 +39,7 @@ Localmente:
     ansible-playbook  -i "localhost," -c local playbook.yml
 ```
 
-#### Todo
+#### Todo <a name="todo">
 - [X] atom
     - [x] instalar
     - [x] configurar
